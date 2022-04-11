@@ -4,6 +4,7 @@ CREATE TABLE CrmUserPasswords (
     UpdatedDate DATETIME2(0),
     DeletedDate DATETIME2(0),
     PasswordHash NVARCHAR(500),
+    Salt NVARCHAR(100) NOT NULL,
     CrmUserId UNIQUEIDENTIFIER CONSTRAINT FK_CrmUsers_CrmUserPasswords
         FOREIGN KEY REFERENCES CrmUsers (Id),
 )
