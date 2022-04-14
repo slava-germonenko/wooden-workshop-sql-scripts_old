@@ -9,3 +9,9 @@ CREATE TABLE CrmRefreshTokens (
     IpAddress CHAR(40) NOT NULL,
     Token NVARCHAR(200) NOT NULL,
 )
+
+CREATE UNIQUE INDEX UIX_CrmRefreshTokens_CrmUserId_DeviceName_IpAddress
+ON CrmRefreshTokens (CrmUserId, DeviceName, IpAddress)
+
+CREATE UNIQUE INDEX UIX_CrmRefreshTokens_Token
+ON CrmRefreshTokens (Token)
