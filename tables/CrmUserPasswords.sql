@@ -6,7 +6,7 @@ CREATE TABLE CrmUserPasswords (
     PasswordHash NVARCHAR(500),
     Salt NVARCHAR(100) NOT NULL,
     CrmUserId UNIQUEIDENTIFIER CONSTRAINT FK_CrmUsers_CrmUserPasswords
-        FOREIGN KEY REFERENCES CrmUsers (Id),
+        FOREIGN KEY REFERENCES CrmUsers (Id) ON DELETE CASCADE,
 )
 
 CREATE UNIQUE INDEX UIX_CrmUserPasswords_CrmUserId_PasswordHash ON CrmUserPasswords (CrmUserId, PasswordHash)
