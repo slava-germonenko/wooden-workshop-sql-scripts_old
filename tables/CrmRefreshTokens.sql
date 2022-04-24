@@ -4,7 +4,7 @@ CREATE TABLE CrmRefreshTokens (
     UpdatedDate DATETIME2(0),
     ExpireDate DATETIME2(0) NOT NULL,
     CrmUserId UNIQUEIDENTIFIER CONSTRAINT FK_CrmUsers_CrmRefreshTokens
-        FOREIGN KEY REFERENCES CrmUsers (Id),
+        FOREIGN KEY REFERENCES CrmUsers (Id) ON DELETE CASCADE,
     DeviceName NVARCHAR(100) NOT NULL,
     IpAddress CHAR(40) NOT NULL,
     Token NVARCHAR(200) NOT NULL,
